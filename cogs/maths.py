@@ -47,7 +47,43 @@ class cogMaths(commands.Cog):
     return
 
     
+    
+  # <------------------[CMD GRAPH]-------------------> #
+
+  @commands.command(
+    name = 'graph',
+    description = "Plot the graph of an equation!",
+    aliases = []
+  )
+  async def cmdGraph(self, ctx, equation, lower: float, upper: float):
+
+    from modules.maths import plotGraph
+
+    start = datetime.now()
+    plotGraph(equation, lower, upper)
+    end = datetime.now()
+
+    embed = discord.Embed(
+      title = f"{ctx.author.display_name}'s Graph",
+      description = (
+        f"Equation: `{equation}, x∈{lower, upper}`\n"
+        f"Syntax: `.graph <eq> <lower> <upper>`\n"
+        f"Time taken: `{(end-start).total_seconds()}s`"
+      ),
+      timestamp = datetime.now(),
+      color = discord.Color.blue()
+    )
+
+    file = discord.File('graph.png')
+    embed.set_image(url='attachment://graph.png')
+    embed.set_footer(text='Powered by Matplotlib')
+
+    await ctx.send(file=file, embed=embed)
+
+    return
  
+
+
 # adds the Maths commands to the bot
 def setup(bot):
   bot.add_cog(cogMaths(bot))
