@@ -134,6 +134,31 @@ class cogMaths(commands.Cog):
  
 
 
+  # <-----------------[CMD INTEGRAL]-----------------> #
+
+  @commands.command(
+    name = 'integrate',
+    description = "Integrate an equation!",
+    aliases = []
+  )
+  async def cmdIntegrate(self, ctx, equation):
+
+    from modules.maths import getIntegral
+
+    start = datetime.now()
+    getIntegral(equation)
+    end = datetime.now()
+
+    time_taken = (end - start).total_seconds()
+
+    file = discord.File('tex.png')
+    embed = getThemedEmbed(ctx, equation, time_taken)
+    await ctx.send(file=file, embed=embed)
+
+    return
+  
+  
+
 # adds the Maths commands to the bot
 def setup(bot):
   bot.add_cog(cogMaths(bot))
