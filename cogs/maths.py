@@ -182,8 +182,33 @@ class cogMaths(commands.Cog):
 
     return
   
-  
 
+  
+  # <------------------[CMD EXPAND]------------------> #
+
+  @commands.command(
+    name = 'expand',
+    description = "Expand an expression!",
+    aliases = []
+  )
+  async def cmdExpand(self, ctx, expression):
+    
+    from modules.maths import getExpansion
+
+    start = datetime.now()
+    getExpansion(expression)
+    end = datetime.now()
+
+    time_taken = (end - start).total_seconds()
+
+    file = discord.File('tex.png')
+    embed = getThemedEmbed(ctx, expression, time_taken)
+    await ctx.send(file=file, embed=embed)
+
+    return
+
+  
+  
 # adds the Maths commands to the bot
 def setup(bot):
   bot.add_cog(cogMaths(bot))
