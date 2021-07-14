@@ -158,6 +158,31 @@ class cogMaths(commands.Cog):
     return
   
   
+  
+  # <------------------[CMD SOLVE]-------------------> #
+
+  @commands.command(
+    name = 'solve',
+    description = "Solve an equation!",
+    aliases = []
+  )
+  async def cmdSolve(self, ctx, equation, domain='real'):
+    
+    from modules.maths import getSolution
+
+    start = datetime.now()
+    getSolution(equation, domain)
+    end = datetime.now()
+
+    time_taken = (end - start).total_seconds()
+
+    file = discord.File('tex.png')
+    embed = getThemedEmbed(ctx, equation, time_taken)
+    await ctx.send(file=file, embed=embed)
+
+    return
+  
+  
 
 # adds the Maths commands to the bot
 def setup(bot):
