@@ -232,6 +232,31 @@ class cogMaths(commands.Cog):
 
     return
   
+
+  
+  # <-----------------[CMD SIMPLIFY]-----------------> #
+
+  @commands.command(
+    name = 'simplify',
+    description = "Simplify an expression!",
+    aliases = []
+  )
+  async def cmdSimplify(self, ctx, expression):
+
+    from modules.maths import getSimplification
+
+    start = datetime.now()
+    getSimplification(expression)
+    end = datetime.now()
+
+    time_taken = (end - start).total_seconds()
+
+    file = discord.File('tex.png')
+    embed = getThemedEmbed(ctx, expression, time_taken)
+    await ctx.send(file=file, embed=embed)
+
+    return
+  
   
   
 # adds the Maths commands to the bot
