@@ -286,6 +286,26 @@ class cogMaths(commands.Cog):
   
   
   
+  # <----------------[CMD CALCULATE]-----------------> #
+
+  @commands.command(
+    name = 'calculate',
+    description = "Compute a calculation!",
+    aliases = ['calc', 'math']
+  )
+  async def cmdCalculate(self, ctx, *, expression):
+    
+    from modules.maths import calcExpression
+
+    answer = calcExpression(expression)
+    content = f"🧮**  |  {ctx.author.name}**, answer is `{answer}`!"
+
+    await ctx.send(content=content)
+
+    return
+
+
+  
 # adds the Maths commands to the bot
 def setup(bot):
   bot.add_cog(cogMaths(bot))
