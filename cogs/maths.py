@@ -259,6 +259,33 @@ class cogMaths(commands.Cog):
   
   
   
+  # <-----------------[CMD AVERAGE]------------------> #
+
+  @commands.command(
+    name = 'average',
+    description = 'Find the mean of a set of numbers!',
+    aliases = []
+  )
+  async def cmdAverage(self, ctx, *, nums):
+
+    try: # check user has inputted numbers
+
+      nums = [float(num) for num in nums.split(' ')]
+
+    except ValueError:
+
+      raise commands.BadArgument
+
+    average = round(sum(nums) / len(nums), 2)
+
+    content = f"🧮**  |  {ctx.author.name}**, average is `{average}`!"
+
+    await ctx.send(content=content)
+
+    return
+  
+  
+  
 # adds the Maths commands to the bot
 def setup(bot):
   bot.add_cog(cogMaths(bot))
