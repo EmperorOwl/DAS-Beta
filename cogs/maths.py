@@ -304,7 +304,47 @@ class cogMaths(commands.Cog):
 
     return
 
+  
+  
+  # <-------------------[CMD ATR]--------------------> #
 
+  @commands.command(
+    name = 'atr',
+    description = "Toggle automatic tex recognition.",
+    aliases = []
+  )
+  @commands.has_permissions(manage_messages=True)
+  async def cmdATR(self, ctx):
+
+    settings = db['settings']
+
+    try: # user has toggled before
+
+      atr = settings[str(ctx.guild.id)]['atr']
+
+      if atr == True:
+        
+        settings.update({ctx.guild.id: {'atr': False}})
+
+        content = f"⚙️**  |  {ctx.author.display_name}** has disabled automatic tex listening!"
+      
+      else:
+
+        settings.update({ctx.guild.id: {'atr': True}})
+
+        content = f"⚙️**  |  {ctx.author.display_name}** has enabled automatic tex listening!"
+
+    except KeyError: # user's first time
+
+      settings.update({ctx.guild.id: {'atr': True}})
+
+      content = f"⚙️**  |  {ctx.author.display_name}** has enabled automatic tex listening!"
+
+    await ctx.send(content=content)
+
+    return
+  
+  
   
 # adds the Maths commands to the bot
 def setup(bot):
