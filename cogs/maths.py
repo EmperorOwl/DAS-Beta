@@ -346,6 +346,35 @@ class cogMaths(commands.Cog):
   
   
   
+  # <-------------[LISTENER ON MESSAGE]--------------> #
+
+  @commands.Cog.listener()
+  async def on_message(self, message):
+
+    settings = db['settings']
+
+    if re.search('\$(.*)\$', message.content) != None:
+
+      try: # check whether user has enabled atr
+
+        atr = settings[str(message.guild.id)]['atr']
+
+        if atr == True:
+
+          renderTeX(message.content)
+
+          await message.channel.send(
+            content = f'**{message.author.display_name}**',
+            file = discord.File('tex.png')
+          )
+
+      except KeyError:
+        pass
+
+    return
+  
+  
+  
 # adds the Maths commands to the bot
 def setup(bot):
   bot.add_cog(cogMaths(bot))
