@@ -24,6 +24,11 @@ async def on_ready():
   replit.clear() # clears terminal
 
   print(f"Logged in as {bot.user.name} - {bot.user.id}")
+  
+  bot.load_extension('cogs.maths')
+  bot.load_extension('cogs.other')
+  bot.load_extension('cogs.error')
+  bot.load_extension('cogs.help')
 
   return
 
