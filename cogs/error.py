@@ -105,6 +105,12 @@ class cogError(commands.Cog):
         content = f"**☹️  |  {ctx.author.display_name}**, your input is not a set of numbers separated by a space."
 
       await ctx.send(content=content)
+
+    elif 'OverflowError' in str(error):
+
+      content = f"**☹️  |  {ctx.author.display_name}**, you input has led to an `Overflow Error`."
+
+      await ctx.send(content=content)
       
     else:
       
