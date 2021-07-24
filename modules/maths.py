@@ -22,12 +22,28 @@ x = sp.Symbol('x')
 
 def parseExpression(eq):
 
+  eq = eq.replace('y=', '').replace('^', '**')
+
+  exponents_list = eq.split('**')[1:]
+
+  if len(exponents_list) > 0:
+
+    for exponent in exponents_list:
+
+      exponents = 0
+      for character in exponent:
+        if character not in ['+', '-', '*', '/']:
+          exponents += 1
+        
+      if exponents > 4:
+        raise OverflowError
+    
   transformations = (standard_transformations + (implicit_multiplication_application,) + (convert_xor,))
-  equation = parse_expr(eq.replace('y=', ''), transformations=transformations)
+  equation = parse_expr(eq, transformations=transformations)
 
   return equation
-
-
+  
+  
 
 # <-------------------[PLOT GRAPH]-------------------> #
 
