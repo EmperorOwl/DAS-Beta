@@ -46,6 +46,15 @@ class cogHelp(commands.Cog):
       )
     )
 
+    cog_other = ctx.bot.get_cog('cogOther')
+    other_cmds = list(cog_other.get_commands())[:-1] # remove owner only command
+  
+    embed.add_field(
+      name = 'Other Commands',
+      value = f" ".join(f'`{ctx.prefix}{c.name}` ' for c in other_cmds),
+      inline = False
+    )
+
     embed.set_thumbnail(url=ctx.bot.user.avatar_url)
 
     embed.set_footer(text=f'Version {bot_version}')
