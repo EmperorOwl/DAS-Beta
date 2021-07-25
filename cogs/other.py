@@ -75,6 +75,27 @@ class cogOther(commands.Cog):
   
   
 
+  # <------------------[CMD PREFIX]------------------> #
+
+  @commands.command(
+    name = 'prefix',
+    description = "Change the prefix.",
+    aliases = []
+  )
+  async def cmdPrefix(self, ctx, prefix):
+
+    settings = db['settings']
+    settings.update({ctx.guild.id: {'prefix': prefix}})
+    db['settings'] = settings
+
+    content = f"**👍 | {ctx.author.display_name}**, the prefix to use DAS in this server has been changed to `{prefix}`"
+
+    await ctx.send(content=content)
+
+    return
+
+
+
   # <-----------------[CMD DBSETUP]------------------> #
 
   @commands.command(
