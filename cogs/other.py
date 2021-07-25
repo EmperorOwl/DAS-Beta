@@ -12,8 +12,25 @@ class cogOther(commands.Cog):
   def __init__(self, bot):    
     self.bot = bot
 
-    
+  
+
+  # <------------------[CMD ABOUT]-------------------> #
+
+  @commands.command(
+    name = 'about',
+    description = "Check out some stats!"
+  )
+  async def cmdAbout(self, ctx):
+
+    from modules.about import getAboutEmbed
+
+    embed = getAboutEmbed(ctx)
+
+    await ctx.send(embed=embed)
+  
+    return
    
+
   # <-------------------[CMD PING]-------------------> #
 
   @commands.command(
