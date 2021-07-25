@@ -1,3 +1,4 @@
+import discord
 from discord.ext import commands
 from replit import db
 
@@ -31,6 +32,7 @@ class cogOther(commands.Cog):
     return
    
 
+  
   # <-------------------[CMD PING]-------------------> #
 
   @commands.command(
@@ -52,6 +54,27 @@ class cogOther(commands.Cog):
 
   
   
+  # <------------------[CMD INVITE]------------------> #
+
+  @commands.command(
+    name = 'invite',
+    description = "Add Quirky to another server.",
+    aliases = []
+  )
+  async def cmdInvite(self, ctx):
+
+    embed = discord.Embed(
+      title = "Thanks for using DAS!",
+      description = "To add the bot to another server, click [here](https://discord.com/oauth2/authorize?client_id=863295366023086090&permissions=322624&scope=bot).",
+      color = discord.Colour.blue()
+    )
+
+    await ctx.send(embed=embed)
+
+    return
+  
+  
+
   # <-----------------[CMD DBSETUP]------------------> #
 
   @commands.command(
