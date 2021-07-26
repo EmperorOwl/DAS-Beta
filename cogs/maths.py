@@ -116,7 +116,7 @@ class cogMaths(commands.Cog):
     description = "Derive an equation!",
     aliases = []
   )
-  async def cmdDerive(self, ctx, equation):
+  async def cmdDerive(self, ctx, *, equation):
 
     from modules.maths import getDerivative
 
@@ -141,7 +141,7 @@ class cogMaths(commands.Cog):
     description = "Integrate an equation!",
     aliases = []
   )
-  async def cmdIntegrate(self, ctx, equation):
+  async def cmdIntegrate(self, ctx, *, equation):
 
     from modules.maths import getIntegral
 
@@ -191,7 +191,7 @@ class cogMaths(commands.Cog):
     description = "Expand an expression!",
     aliases = []
   )
-  async def cmdExpand(self, ctx, expression):
+  async def cmdExpand(self, ctx, *, expression):
     
     from modules.maths import getExpansion
 
@@ -216,7 +216,7 @@ class cogMaths(commands.Cog):
     description = "Factor an expression!",
     aliases = []
   )
-  async def cmdFactor(self, ctx, expression):
+  async def cmdFactor(self, ctx, *, expression):
     
     from modules.maths import getFactorisation
 
@@ -241,7 +241,7 @@ class cogMaths(commands.Cog):
     description = "Simplify an expression!",
     aliases = []
   )
-  async def cmdSimplify(self, ctx, expression):
+  async def cmdSimplify(self, ctx, *, expression):
 
     from modules.maths import getSimplification
 
