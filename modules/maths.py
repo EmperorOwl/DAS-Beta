@@ -34,6 +34,8 @@ def parseExpression(eq):
       for character in exponent:
         if character not in ['+', '-', '*', '/']:
           exponents += 1
+        else:
+          break
         
       if exponents > 4:
         raise OverflowError
