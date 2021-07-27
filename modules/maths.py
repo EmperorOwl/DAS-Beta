@@ -4,48 +4,13 @@ import numexpr as ne
 import numpy as np  
 import sympy as sp
 
-
-from sympy.parsing.sympy_parser import (
-  parse_expr, # converts string to sympy expression
-  standard_transformations, # eg. 5! = 5*4*3*2*1
-  implicit_multiplication_application, # e.g. 2x = 2*x
-  convert_xor # e.g. 2^x = 2**x
-)
+from modules.parser import parseExpression
 
 
 
 x = sp.Symbol('x')
 
-
-
-# <----------------[PARSE EXPRESSION]----------------> #
-
-def parseExpression(eq):
-
-  eq = eq.replace('y=', '').replace('^', '**')
-
-  exponents_list = eq.split('**')[1:]
-
-  if len(exponents_list) > 0:
-
-    for exponent in exponents_list:
-
-      exponents = 0
-      for character in exponent:
-        if character not in ['+', '-', '*', '/']:
-          exponents += 1
-        else:
-          break
-        
-      if exponents > 4:
-        raise OverflowError
-    
-  transformations = (standard_transformations + (implicit_multiplication_application,) + (convert_xor,))
-  equation = parse_expr(eq, transformations=transformations)
-
-  return equation
-  
-  
+ 
 
 # <-------------------[PLOT GRAPH]-------------------> #
 
