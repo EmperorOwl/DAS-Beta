@@ -106,9 +106,15 @@ class cogError(commands.Cog):
 
       await ctx.send(content=content)
 
-    elif 'OverflowError' in str(error):
+    elif type(error.original) == OverflowError:
 
-      content = f"**☹️  |  {ctx.author.display_name}**, you input has led to an `Overflow Error`."
+      content = f"**☹️  |  {ctx.author.display_name}**, your input has led to an `Overflow Error`."
+
+      await ctx.send(content=content)
+
+    elif type(error.original) == KeyError:
+
+      content = f"**☹️  |  {ctx.author.display_name}**, your input can only involve the variable `x`."
 
       await ctx.send(content=content)
       
