@@ -44,6 +44,8 @@ bot = commands.Bot(
 
   command_prefix = get_prefix,
 
+  intents = intents
+
 )
 
 
