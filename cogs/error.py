@@ -49,6 +49,30 @@ class cogError(commands.Cog):
       await ctx.send(content=content)
 
 
+    # <------------[ERROR COMMAND INVOKE]------------> #
+
+    elif isinstance(error, commands.CommandInvokeError):
+
+      if type(error.original) == SyntaxError:
+
+        content = f"**☹️  |  {ctx.author.display_name}**, your input has led to an `Syntax Error`."
+
+      elif type(error.original) == OverflowError:
+
+        content = f"**☹️  |  {ctx.author.display_name}**, your input has led to an `Overflow Error`."
+
+
+      elif type(error.original) == KeyError:
+
+        content = f"**☹️  |  {ctx.author.display_name}**, your input can only involve the variable `x`."
+
+      else:
+
+        content = f"**☹️  |  {ctx.author.display_name}**, your input is in some way not correct and the error has been logged."
+
+      await ctx.send(content=content)
+
+
 
     # <----------[ERROR PERMISSIONS MISSING]----------> #
     
@@ -111,26 +135,7 @@ class cogError(commands.Cog):
       await ctx.send(content=content)
 
 
-    # <---------------[Error Pythonic]---------------> #
-    
-    elif type(error.original) == SyntaxError:
 
-      content = f"**☹️  |  {ctx.author.display_name}**, your input has led to an `Syntax Error`."
-
-      await ctx.send(content=content)
-
-    elif type(error.original) == OverflowError:
-
-      content = f"**☹️  |  {ctx.author.display_name}**, your input has led to an `Overflow Error`."
-
-      await ctx.send(content=content)
-
-    elif type(error.original) == KeyError:
-
-      content = f"**☹️  |  {ctx.author.display_name}**, your input can only involve the variable `x`."
-
-      await ctx.send(content=content)
-      
     else:
       
       print("Ignoring exception in command {}:".format(ctx.command), file=sys.stderr)
