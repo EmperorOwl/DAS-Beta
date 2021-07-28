@@ -84,6 +84,10 @@ class cogError(commands.Cog):
 
         content = f"☹️**  |  {ctx.author.display_name}**, you need to specify a set of numbers separated by a space."
 
+      elif ctx.command.qualified_name == 'prefix':
+
+        content = f"**☹️  |  {ctx.author.display_name}**, you are missing what to change the prefix to."
+
       await ctx.send(content=content)
         
 
