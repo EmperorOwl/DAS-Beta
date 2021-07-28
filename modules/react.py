@@ -8,6 +8,7 @@ async def addReactions(ctx, message):
 
   await message.add_reaction('📈')
   await message.add_reaction('🗑️')
+  await message.add_reaction('✅')
 
   while True:
 
@@ -39,6 +40,13 @@ async def addReactions(ctx, message):
 
         await message.delete()
         await ctx.message.delete()
+
+        return
+
+      elif emoji == '✅':
+
+        await ctx.message.delete()
+        await message.clear_reactions()
 
         return
 
