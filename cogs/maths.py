@@ -22,7 +22,21 @@ class cogMaths(commands.Cog):
     self.bot = bot
     
   
+
+  # <----------------[TRIGGER TYPING]----------------> #
+
+  async def cog_before_invoke(self, ctx):
+    
+    """
+    Triggers typing indicator on Discord before every command.
+    """
+
+    await ctx.trigger_typing()
+    
+    return
   
+
+
   # <-----------------[CMD DISPLAY]------------------> #
 
   @commands.command(
@@ -167,7 +181,7 @@ class cogMaths(commands.Cog):
     aliases = []
   )
   async def cmdSolve(self, ctx, equation, domain='real'):
-    
+
     from modules.maths import getSolution
 
     start = datetime.now()
