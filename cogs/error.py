@@ -93,7 +93,7 @@ class cogError(commands.Cog):
 
 
     # <-------------[ERROR ARGUMENT BAD]-------------> #
-
+    
     elif isinstance(error, commands.BadArgument):
 
       if ctx.command.qualified_name == 'graph':
@@ -107,6 +107,15 @@ class cogError(commands.Cog):
       elif ctx.command.qualified_name == 'average':
 
         content = f"**☹️  |  {ctx.author.display_name}**, your input is not a set of numbers separated by a space."
+
+      await ctx.send(content=content)
+
+
+    # <---------------[Error Pythonic]---------------> #
+    
+    elif type(error.original) == SyntaxError:
+
+      content = f"**☹️  |  {ctx.author.display_name}**, your input has led to an `Syntax Error`."
 
       await ctx.send(content=content)
 
