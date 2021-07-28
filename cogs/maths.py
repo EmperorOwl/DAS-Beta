@@ -185,9 +185,10 @@ class cogMaths(commands.Cog):
     from modules.maths import getSolution
 
     start = datetime.now()
-    getSolution(equation, domain)
+    getSolution(equation.replace('=0', ''), domain)
     end = datetime.now()
-
+    
+    equation = equation + '=0'
     time_taken = (end - start).total_seconds()
 
     file = discord.File('tex.png')

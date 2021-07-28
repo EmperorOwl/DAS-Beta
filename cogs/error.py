@@ -55,7 +55,13 @@ class cogError(commands.Cog):
 
       if type(error.original) == SyntaxError:
 
-        content = f"**☹️  |  {ctx.author.display_name}**, your input has led to an `Syntax Error`."
+        if ctx.command.qualified_name == 'solve':
+
+          content = f"**☹️  |  {ctx.author.display_name}**, you need to specify an equation that is equal to zero."
+
+        else:
+
+          content = f"**☹️  |  {ctx.author.display_name}**, your input has led to an `Syntax Error`."
 
       elif type(error.original) == OverflowError:
 
@@ -69,6 +75,9 @@ class cogError(commands.Cog):
       else:
 
         content = f"**☹️  |  {ctx.author.display_name}**, your input is in some way not correct and the error has been logged."
+
+        print("Ignoring exception in command {}:".format(ctx.command), file=sys.stderr)
+        traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
 
       await ctx.send(content=content)
 
