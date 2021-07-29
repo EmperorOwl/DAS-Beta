@@ -81,7 +81,7 @@ def getLimit(equation, x_value):
   equation = parseExpression(equation)
   limit = sp.limit(equation, x, x_value)
 
-  if 'oo' in x_value:
+  if 'oo' in str(x_value):
     x_value = x_value.replace('oo', '\infty')
   
   tex = (
