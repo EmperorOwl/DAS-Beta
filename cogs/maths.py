@@ -155,12 +155,12 @@ class cogMaths(commands.Cog):
     description = "Integrate an equation!",
     aliases = []
   )
-  async def cmdIntegrate(self, ctx, *, equation):
+  async def cmdIntegrate(self, ctx, equation, lt: int = None, ut: int = None):
 
     from modules.maths import getIntegral
 
     start = datetime.now()
-    getIntegral(equation)
+    getIntegral(equation, lt, ut)
     end = datetime.now()
 
     time_taken = (end - start).total_seconds()

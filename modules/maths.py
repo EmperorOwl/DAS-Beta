@@ -105,11 +105,25 @@ def getDerivative(equation):
 
 # <------------------[GET INTEGRAL]------------------> #
 
-def getIntegral(equation):
+def getIntegral(equation, lt, ut):
 
   equation = parseExpression(equation)
-  integral = sp.integrate(equation, x)
-  renderTeX(f'${sp.latex(integral)} + C$')
+
+  if lt != None and ut != None:
+
+    definite_int = sp.integrate(equation, (x, lt, ut))
+    tex = (
+      r'$\int_{' + str(lt) + '}^{' + str(ut) + '}' +
+      '(' + sp.latex(equation) + ') \ dx' + 
+      '=' + sp.latex(definite_int) + '$'
+    )
+
+  else:
+
+    indefinite_int = sp.integrate(equation, x)
+    tex = '${sp.latex(integral)} + C$'
+
+  renderTeX(tex)
 
   return
 
