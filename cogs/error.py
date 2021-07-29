@@ -62,6 +62,12 @@ class cogError(commands.Cog):
         else:
 
           content = f"**☹️  |  {ctx.author.display_name}**, your input has led to an `Syntax Error`."
+        
+      elif type(error.original) == ValueError:
+
+        if ctx.command.qualified_name == 'calculate':
+
+          content = f"**☹️  |  {ctx.author.display_name}**, your input cannnot contain letters."
 
       elif type(error.original) == OverflowError:
 
