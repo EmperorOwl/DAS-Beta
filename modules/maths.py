@@ -48,8 +48,10 @@ def plotGraph(equation, lower, upper):
 
 def renderTeX(text): 
   
-  # change the font to Computer Modern
+  # change math font to Computer Modern
   plt.rcParams['mathtext.fontset'] = 'cm'
+  # change normal font to DejaVu Serif
+  plt.rcParams['font.family'] = 'DejaVu Serif'
   
   fig = pylab.figure()
   
