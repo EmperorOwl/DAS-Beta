@@ -37,7 +37,7 @@ def getAboutEmbed(ctx):
 
       '\n'
 
-      "[Top.gg Site](https://top.gg/bot/863295366023086090) ~ [Invite Me](https://discord.com/api/oauth2/authorize?client_id=863295366023086090&permissions=322624&scope=bot)"
+      "[Gitbook Docs](https://emperorowl.gitbook.io/das/) ~ [Top.gg Site](https://top.gg/bot/863295366023086090) ~ [Invite Me](https://discord.com/api/oauth2/authorize?client_id=863295366023086090&permissions=322624&scope=bot)"
       
     ),
     color = discord.Colour.blue()
