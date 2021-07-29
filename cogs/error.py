@@ -135,7 +135,7 @@ class cogError(commands.Cog):
 
       elif ctx.command.qualified_name == 'limit':
 
-        content = f"**☹️  |  {ctx.author.display_name}**, the x-value has to be a number."
+        content = f"**☹️  |  {ctx.author.display_name}**, the x-value has to be a number or `oo` or `-oo` where `oo` represents infinity."
 
       elif ctx.command.qualified_name == 'average':
 

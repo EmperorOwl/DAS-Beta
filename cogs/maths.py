@@ -105,7 +105,16 @@ class cogMaths(commands.Cog):
     description = "Find the limit of an equation!",
     aliases = []
   )
-  async def cmdLimit(self, ctx, equation, x_value: float):
+  async def cmdLimit(self, ctx, equation, x_value):
+
+    try: # user has entered a number
+      
+      x_value = float(x_value)
+    
+    except ValueError: # user has entered infinity
+
+      if x_value != 'oo' and x_value != '-oo':
+        raise commands.BadArgument
 
     from modules.maths import getLimit
 
