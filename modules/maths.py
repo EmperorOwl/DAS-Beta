@@ -121,7 +121,7 @@ def getIntegral(equation, lt, ut):
   else:
 
     indefinite_int = sp.integrate(equation, x)
-    tex = '${sp.latex(integral)} + C$'
+    tex = f'${sp.latex(indefinite_int)} + C$'
 
   renderTeX(tex)
 
