@@ -53,6 +53,7 @@ def parseExpression(expression):
 
   expression = expression.replace('y=', '')
   expression = expression.replace('^', '**')
+  expression = expression.replace('e', 'E')
 
   checkTooManyCharacters(expression)
   checkTooManyExponents(expression)
