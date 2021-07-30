@@ -53,7 +53,10 @@ class cogError(commands.Cog):
 
     elif isinstance(error, commands.CommandInvokeError):
 
-      if type(error.original) == SyntaxError:
+      if (
+          type(error.original) == SyntaxError or
+          type(error.original).__name__ == 'TokenError'
+      ):
 
         if ctx.command.qualified_name == 'solve':
 

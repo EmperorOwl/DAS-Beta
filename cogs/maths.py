@@ -385,11 +385,20 @@ class cogMaths(commands.Cog):
 
         if atr == True:
 
-          renderTeX(message.content)
+          try:
+            
+            renderTeX(message.content)
+            content = f"**{message.author.display_name}**"
+            file = discord.File('tex.png')
+          
+          except Exception as error:
+
+            content = f"**☹️  |  {message.author.display_name}**, your input has led to an `{type(error).__name__}`."
+            file = None
 
           await message.channel.send(
-            content = f'**{message.author.display_name}**',
-            file = discord.File('tex.png')
+            content = content,
+            file = file
           )
 
       except KeyError:
