@@ -19,7 +19,7 @@ class cogError(commands.Cog):
 
   @commands.Cog.listener()
   async def on_command_error(self, ctx, error):
-    print(error)
+
     """
     The event triggered when an error is raised while invoking a command.
 
@@ -37,6 +37,20 @@ class cogError(commands.Cog):
     if isinstance(error, commands.CommandNotFound):
 
       pass
+
+
+    
+
+    # <---------[ERROR COMMAND ON COOLDOWN]----------> #
+
+    elif isinstance(error, commands.CommandOnCooldown):
+
+      hg = self.bot.get_emoji(749825033093775430)
+      ra = round(error.retry_after, 2)
+
+      content = f"**{hg}  |  {ctx.author.display_name}**, to prevent spam and abuse there is a cooldown. Retry after: `{ra} s`"
+
+      await ctx.send(content=content)
 
 
 

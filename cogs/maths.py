@@ -9,6 +9,7 @@ from replit import db
 from modules.maths import renderTeX
 from modules.embed import getThemedEmbed
 from modules.react import addReactions
+from modules.cooldown import getSharedCooldown
 
 
 
@@ -20,6 +21,7 @@ class cogMaths(commands.Cog):
 
   def __init__(self, bot):
     self.bot = bot
+    
     
   
 
@@ -37,6 +39,12 @@ class cogMaths(commands.Cog):
   
 
 
+  # <----------------[COOLDOWN SETUP]----------------> #
+
+  commands_cooldown = getSharedCooldown()
+
+
+
   # <-----------------[CMD DISPLAY]------------------> #
 
   @commands.command(
@@ -44,6 +52,7 @@ class cogMaths(commands.Cog):
     description = "Display an equation!",
     aliases = []
   )
+  @commands_cooldown
   async def cmdDisplay(self, ctx, *, equation):
 
     start = datetime.now()
@@ -69,6 +78,7 @@ class cogMaths(commands.Cog):
     description = "Plot the graph of an equation!",
     aliases = []
   )
+  @commands_cooldown
   async def cmdGraph(self, ctx, equation, lower: float, upper: float):
 
     from modules.maths import plotGraph
@@ -105,6 +115,7 @@ class cogMaths(commands.Cog):
     description = "Find the limit of an equation!",
     aliases = []
   )
+  @commands_cooldown
   async def cmdLimit(self, ctx, equation, x_value):
 
     try: # user has entered a number
@@ -139,6 +150,7 @@ class cogMaths(commands.Cog):
     description = "Derive an equation!",
     aliases = []
   )
+  @commands_cooldown
   async def cmdDerive(self, ctx, *, equation):
 
     from modules.maths import getDerivative
@@ -164,6 +176,7 @@ class cogMaths(commands.Cog):
     description = "Integrate an equation!",
     aliases = []
   )
+  @commands_cooldown
   async def cmdIntegrate(self, ctx, equation, lt: int = None, ut: int = None):
 
     from modules.maths import getIntegral
@@ -189,6 +202,7 @@ class cogMaths(commands.Cog):
     description = "Solve an equation!",
     aliases = []
   )
+  @commands_cooldown
   async def cmdSolve(self, ctx, equation, domain='real'):
 
     from modules.maths import getSolution
@@ -215,6 +229,7 @@ class cogMaths(commands.Cog):
     description = "Expand an expression!",
     aliases = []
   )
+  @commands_cooldown
   async def cmdExpand(self, ctx, *, expression):
     
     from modules.maths import getExpansion
@@ -240,6 +255,7 @@ class cogMaths(commands.Cog):
     description = "Factor an expression!",
     aliases = []
   )
+  @commands_cooldown
   async def cmdFactor(self, ctx, *, expression):
     
     from modules.maths import getFactorisation
@@ -265,6 +281,7 @@ class cogMaths(commands.Cog):
     description = "Simplify an expression!",
     aliases = []
   )
+  @commands_cooldown
   async def cmdSimplify(self, ctx, *, expression):
 
     from modules.maths import getSimplification
@@ -290,6 +307,7 @@ class cogMaths(commands.Cog):
     description = 'Find the mean of a set of numbers!',
     aliases = []
   )
+  @commands_cooldown
   async def cmdAverage(self, ctx, *, nums):
 
     try: # check user has inputted numbers
@@ -317,6 +335,7 @@ class cogMaths(commands.Cog):
     description = "Compute a calculation!",
     aliases = ['calc', 'math']
   )
+  @commands_cooldown
   async def cmdCalculate(self, ctx, *, expression):
     
     from modules.maths import calcExpression
@@ -337,6 +356,7 @@ class cogMaths(commands.Cog):
     description = "Toggle automatic tex recognition.",
     aliases = []
   )
+  @commands_cooldown
   @commands.has_permissions(manage_messages=True)
   async def cmdATR(self, ctx):
 
