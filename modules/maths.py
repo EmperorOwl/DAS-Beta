@@ -118,10 +118,14 @@ def getIntegral(equation, lt, ut):
   if lt != None and ut != None:
 
     definite_int = sp.integrate(equation, (x, lt, ut))
+    definite_int = sp.latex(definite_int)
+    definite_int = definite_int.replace(
+      r'\text{NaN}', '\mathtt{undef}'
+    )
     tex = (
       r'$\int_{' + str(lt) + '}^{' + str(ut) + '}' +
       '(' + sp.latex(equation) + ') \ dx' + 
-      '=' + sp.latex(definite_int) + '$'
+      '=' + definite_int + '$'
     )
 
   else:

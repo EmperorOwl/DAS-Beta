@@ -19,7 +19,7 @@ class cogError(commands.Cog):
 
   @commands.Cog.listener()
   async def on_command_error(self, ctx, error):
-
+    print(error)
     """
     The event triggered when an error is raised while invoking a command.
 
@@ -31,7 +31,7 @@ class cogError(commands.Cog):
       The Exception raised
       
     """
-
+    
     # <----------[ERROR COMMAND NOT FOUND]-----------> #
 
     if isinstance(error, commands.CommandNotFound):
