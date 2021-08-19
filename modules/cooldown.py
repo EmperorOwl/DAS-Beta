@@ -2,7 +2,7 @@ from discord.ext import commands
 
 
 
-# <--------------[GET SHARED COOLDOWN]---------------> #
+# <------------[GET SHARED COOLDOWN]--------------> #
 
 def getSharedCooldown():
 

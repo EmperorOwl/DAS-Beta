@@ -4,7 +4,7 @@ from replit import db
 
 
 
-# <-------------------[COG OTHER]--------------------> #
+# <-----------------[COG OTHER]-------------------> #
 
 class cogOther(commands.Cog):
 
@@ -15,7 +15,7 @@ class cogOther(commands.Cog):
 
   
 
-  # <------------------[CMD ABOUT]-------------------> #
+  # <----------------[CMD ABOUT]------------------> #
 
   @commands.command(
     name = 'about',
@@ -33,7 +33,7 @@ class cogOther(commands.Cog):
    
 
   
-  # <-------------------[CMD PING]-------------------> #
+  # <------------------[CMD PING]-----------------> #
 
   @commands.command(
     name = 'ping',
@@ -54,11 +54,11 @@ class cogOther(commands.Cog):
 
   
   
-  # <------------------[CMD INVITE]------------------> #
+  # <----------------[CMD INVITE]-----------------> #
 
   @commands.command(
     name = 'invite',
-    description = "Add Quirky to another server.",
+    description = "Add DAS to another server.",
     aliases = []
   )
   async def cmdInvite(self, ctx):
@@ -75,7 +75,7 @@ class cogOther(commands.Cog):
   
   
 
-  # <------------------[CMD PREFIX]------------------> #
+  # <----------------[CMD PREFIX]-----------------> #
 
   @commands.command(
     name = 'prefix',
@@ -96,7 +96,7 @@ class cogOther(commands.Cog):
 
 
 
-  # <-----------------[CMD DBSETUP]------------------> #
+  # <---------------[CMD DBSETUP]-----------------> #
 
   @commands.command(
     name = 'dbsetup',

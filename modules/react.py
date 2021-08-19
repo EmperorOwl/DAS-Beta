@@ -2,7 +2,7 @@ import asyncio
 
 
 
-# <-----------------[ADD REACTIONS]------------------> #
+# <---------------[ADD REACTIONS]-----------------> #
 
 async def addReactions(ctx, message):
 

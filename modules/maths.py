@@ -12,7 +12,7 @@ x = sp.Symbol('x')
 
  
 
-# <-------------------[PLOT GRAPH]-------------------> #
+# <-----------------[PLOT GRAPH]------------------> #
 
 def plotGraph(equation, lower, upper):
 
@@ -44,7 +44,7 @@ def plotGraph(equation, lower, upper):
 
 
 
-# <-------------------[RENDER TEX]-------------------> #
+# <-----------------[RENDER TEX]------------------> #
 
 def renderTeX(text): 
   
@@ -76,7 +76,7 @@ def renderTeX(text):
 
 
 
-# <-------------------[GET LIMIT]--------------------> #
+# <-----------------[GET LIMIT]-------------------> #
 
 def getLimit(equation, x_value):
 
@@ -97,7 +97,7 @@ def getLimit(equation, x_value):
 
 
 
-# <-----------------[GET DERIVATIVE]-----------------> #
+# <---------------[GET DERIVATIVE]----------------> #
 
 def getDerivative(equation):
 
@@ -109,7 +109,7 @@ def getDerivative(equation):
 
 
 
-# <------------------[GET INTEGRAL]------------------> #
+# <----------------[GET INTEGRAL]-----------------> #
 
 def getIntegral(equation, lt, ut):
 
@@ -139,7 +139,7 @@ def getIntegral(equation, lt, ut):
 
 
 
-# <------------------[GET SOLUTION]------------------> #
+# <----------------[GET SOLUTION]-----------------> #
 
 def getSolution(equation, domain):
 
@@ -191,7 +191,7 @@ def getSolution(equation, domain):
 
 
 
-# <-----------------[GET EXPANSION]------------------> #
+# <---------------[GET EXPANSION]-----------------> #
 
 def getExpansion(expression):
 
@@ -203,7 +203,7 @@ def getExpansion(expression):
 
 
 
-# <---------------[GET FACTORISATION]----------------> #
+# <-------------[GET FACTORISATION]---------------> #
 
 def getFactorisation(expression):
 
@@ -215,7 +215,7 @@ def getFactorisation(expression):
 
 
 
-# <---------------[GET SIMPLIFICATION]---------------> #
+# <-------------[GET SIMPLIFICATION]--------------> #
 
 def getSimplification(expression):
 
@@ -227,7 +227,7 @@ def getSimplification(expression):
 
 
 
-# <----------------[CALC EXPRESSION]-----------------> #
+# <--------------[CALC EXPRESSION]----------------> #
 
 def calcExpression(expression):
 

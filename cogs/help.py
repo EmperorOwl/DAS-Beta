@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 
-# <--------------------[COG HELP]--------------------> #
+# <------------------[COG HELP]-------------------> #
 
 class cogHelp(commands.Cog):
 
@@ -16,7 +16,7 @@ class cogHelp(commands.Cog):
 
   
 
-  # <-------------------[CMD HELP]-------------------> #
+  # <-----------------[CMD HELP]------------------> #
 
   @commands.command(
     name = 'help',

@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 
-# <-----------------[GET MATH EMBED]-----------------> #
+# <---------------[GET MATH EMBED]----------------> #
 
 def getThemedEmbed(ctx, equation, time_taken):
 

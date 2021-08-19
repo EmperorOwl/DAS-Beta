@@ -13,7 +13,7 @@ from modules.cooldown import getSharedCooldown
 
 
 
-# <-------------------[COG MATHS]--------------------> #
+# <-----------------[COG MATHS]-------------------> #
 
 class cogMaths(commands.Cog):
 
@@ -25,7 +25,7 @@ class cogMaths(commands.Cog):
     
   
 
-  # <----------------[TRIGGER TYPING]----------------> #
+  # <--------------[TRIGGER TYPING]---------------> #
 
   async def cog_before_invoke(self, ctx):
     
@@ -39,13 +39,13 @@ class cogMaths(commands.Cog):
   
 
 
-  # <----------------[COOLDOWN SETUP]----------------> #
+  # <--------------[COOLDOWN SETUP]---------------> #
 
   commands_cooldown = getSharedCooldown()
 
 
 
-  # <-----------------[CMD DISPLAY]------------------> #
+  # <---------------[CMD DISPLAY]-----------------> #
 
   @commands.command(
     name = 'display',
@@ -71,7 +71,7 @@ class cogMaths(commands.Cog):
 
     
     
-  # <------------------[CMD GRAPH]-------------------> #
+  # <----------------[CMD GRAPH]------------------> #
 
   @commands.command(
     name = 'graph',
@@ -108,7 +108,7 @@ class cogMaths(commands.Cog):
     
     
     
-  # <------------------[CMD LIMIT]-------------------> #
+  # <----------------[CMD LIMIT]------------------> #
 
   @commands.command(
     name = 'limit',
@@ -143,7 +143,7 @@ class cogMaths(commands.Cog):
 
 
   
-  # <------------------[CMD DERIVE]------------------> #
+  # <----------------[CMD DERIVE]-----------------> #
 
   @commands.command(
     name = 'derive',
@@ -169,7 +169,7 @@ class cogMaths(commands.Cog):
  
 
 
-  # <-----------------[CMD INTEGRAL]-----------------> #
+  # <---------------[CMD INTEGRAL]----------------> #
 
   @commands.command(
     name = 'integrate',
@@ -195,7 +195,7 @@ class cogMaths(commands.Cog):
   
   
   
-  # <------------------[CMD SOLVE]-------------------> #
+  # <----------------[CMD SOLVE]------------------> #
 
   @commands.command(
     name = 'solve',
@@ -222,7 +222,7 @@ class cogMaths(commands.Cog):
   
 
   
-  # <------------------[CMD EXPAND]------------------> #
+  # <----------------[CMD EXPAND]-----------------> #
 
   @commands.command(
     name = 'expand',
@@ -248,7 +248,7 @@ class cogMaths(commands.Cog):
 
   
   
-  # <--------------[CMD FACTORISATION]---------------> #
+  # <------------[CMD FACTORISATION]--------------> #
   
   @commands.command(
     name = 'factor',
@@ -274,7 +274,7 @@ class cogMaths(commands.Cog):
   
 
   
-  # <-----------------[CMD SIMPLIFY]-----------------> #
+  # <---------------[CMD SIMPLIFY]----------------> #
 
   @commands.command(
     name = 'simplify',
@@ -300,7 +300,7 @@ class cogMaths(commands.Cog):
   
   
   
-  # <-----------------[CMD AVERAGE]------------------> #
+  # <---------------[CMD AVERAGE]-----------------> #
 
   @commands.command(
     name = 'average',
@@ -328,7 +328,7 @@ class cogMaths(commands.Cog):
   
   
   
-  # <----------------[CMD CALCULATE]-----------------> #
+  # <--------------[CMD CALCULATE]----------------> #
 
   @commands.command(
     name = 'calculate',
@@ -349,7 +349,7 @@ class cogMaths(commands.Cog):
 
   
   
-  # <-------------------[CMD ATR]--------------------> #
+  # <-----------------[CMD ATR]-------------------> #
 
   @commands.command(
     name = 'atr',
@@ -390,7 +390,7 @@ class cogMaths(commands.Cog):
   
   
   
-  # <-------------[LISTENER ON MESSAGE]--------------> #
+  # <-----------[LISTENER ON MESSAGE]-------------> #
 
   @commands.Cog.listener()
   async def on_message(self, message):

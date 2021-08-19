@@ -4,7 +4,7 @@ from discord.ext import commands
 
 
 
-# <-------------------[COG ERROR]--------------------> #
+# <-----------------[COG ERROR]------------------> #
 
 class cogError(commands.Cog):
 
@@ -15,24 +15,13 @@ class cogError(commands.Cog):
 
   
 
-  # <----------------[LISTENER ERROR]----------------> #
+  # <--------------[LISTENER ERROR]---------------> #
 
   @commands.Cog.listener()
   async def on_command_error(self, ctx, error):
 
-    """
-    The event triggered when an error is raised while invoking a command.
-
-    Parameters
-    ----------
-    ctx: commands.Context
-      The context used for command invocation
-    error: commands.CommandError
-      The Exception raised
-      
-    """
     
-    # <----------[ERROR COMMAND NOT FOUND]-----------> #
+    # <--------[ERROR COMMAND NOT FOUND]----------> #
 
     if isinstance(error, commands.CommandNotFound):
 
@@ -41,7 +30,7 @@ class cogError(commands.Cog):
 
     
 
-    # <---------[ERROR COMMAND ON COOLDOWN]----------> #
+    # <-------[ERROR COMMAND ON COOLDOWN]---------> #
 
     elif isinstance(error, commands.CommandOnCooldown):
 
@@ -54,7 +43,7 @@ class cogError(commands.Cog):
 
 
 
-    # <-----------[ERROR COMMAND DISABLED]-----------> #
+    # <---------[ERROR COMMAND DISABLED]----------> #
 
     elif isinstance(error, commands.DisabledCommand):
 
@@ -63,7 +52,7 @@ class cogError(commands.Cog):
       await ctx.send(content=content)
 
 
-    # <------------[ERROR COMMAND INVOKE]------------> #
+    # <----------[ERROR COMMAND INVOKE]-----------> #
 
     elif isinstance(error, commands.CommandInvokeError):
 
@@ -106,7 +95,7 @@ class cogError(commands.Cog):
 
 
 
-    # <----------[ERROR PERMISSIONS MISSING]----------> #
+    # <--------[ERROR PERMISSIONS MISSING]--------> #
     
     elif isinstance(error, commands.MissingPermissions):
       
@@ -116,7 +105,7 @@ class cogError(commands.Cog):
 
 
 
-    # <-----------[ERROR ARGUMENT MISSING]-----------> #
+    # <---------[ERROR ARGUMENT MISSING]----------> #
 
     elif isinstance(error, commands.MissingRequiredArgument):
 
@@ -148,7 +137,7 @@ class cogError(commands.Cog):
         
 
 
-    # <-------------[ERROR ARGUMENT BAD]-------------> #
+    # <-----------[ERROR ARGUMENT BAD]------------> #
     
     elif isinstance(error, commands.BadArgument):
 
