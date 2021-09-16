@@ -35,4 +35,8 @@ The Discord Algebra System (DAS) is a high quality calculator that supports TeX 
 
 &nbsp;
 
+[![Discord Bots](https://top.gg/api/widget/863295366023086090.svg)](https://top.gg/bot/863295366023086090)
+
+&nbsp;
+
 Made with ❤️ in Melbourne © 2021 DAS
